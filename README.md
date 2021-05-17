@@ -1,3 +1,5 @@
+An API service to store list of countries and their populations. It utilizes NestJS (TypeScript Backend Framework) and Redis for data storage. 
+
 ## Installation
 
 ```bash
