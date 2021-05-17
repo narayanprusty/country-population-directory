@@ -1,0 +1,24 @@
+services:
+    redis:
+      container_name: redis
+      image: redis:alpine
+      hostname: redis
+      networks:
+        - countries-network
+      ports:
+        - "6379:6379"
+    api:
+        container_name: countries
+        image: countries
+        environment:
+          REDIS_URL: "redis://redis:6379"
+        build:
+            context: .
+            dockerfile: ./Dockerfile
+        ports:
+            - 3000:3000
+        networks:
+            - countries-network
+
+networks:
+    countries-network:
